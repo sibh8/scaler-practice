@@ -1,4 +1,4 @@
-package com.gallifreyantimelord.scaler.dsaadvanced.day43;
+package com.gallifreyantimelord.scaler.dsaadvanced.day36;
 
 /* Find a pair of elements in the given array that will give the maximum result of binary operator AND.
 * */
