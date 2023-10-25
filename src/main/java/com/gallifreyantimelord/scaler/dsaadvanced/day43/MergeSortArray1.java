@@ -32,29 +32,43 @@ public class MergeSortArray1 {
         merge(ar, l, m, h);
     }
 
-    private static int[] merge(int[] ar, int l, int m, int h) {
+    private static void merge(int[] ar, int l, int m, int h) {
 
-        int p1=0, p2=0, p3=0;
-        int N = m-l+1;
-        int M = h-m;
-        int[] ar1 = new int[N];
-        int[] ar2 = new int[M];
-        int[] res = new int[N+M];
+        int p1=l, p2=m+1, p3=0;
+        int[] res = new int[h-l+1];
 
-        while(p1 < N && p2 < M){
-            if(ar1[p1] < ar2[p2]){
-                res[p3] = ar1[p1];
+        while(p1 <= m && p2 <= h){
+            if(ar[p1] < ar[p2]){
+                res[p3] = ar[p1];
                 p1++;
                 p3++;
             }
 
-            if(ar2[p2] < ar1[p1]) {
-                res[p3] = ar2[p2];
+            if(ar[p2] < ar[p1]) {
+                res[p3] = ar[p2];
                 p2++;
                 p3++;
             }
         }
 
-        return res;
+        while(p1<=m){
+            res[p3] = ar[p1];
+            p1++;
+            p3++;
+        }
+
+        while(p2<=h ){
+            res[p3] = ar[p2];
+            p2++;
+            p3++;
+        }
+
+
+        int i=l, j=0;
+        while(i<=h){
+            ar[i] = res[j];
+            i++;
+            j++;
+        }
     }
 }
