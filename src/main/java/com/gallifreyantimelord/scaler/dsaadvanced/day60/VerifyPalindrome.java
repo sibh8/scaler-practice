@@ -1,17 +1,29 @@
 package com.gallifreyantimelord.scaler.dsaadvanced.day60;
 
+import static java.lang.Math.ceil;
+
 public class VerifyPalindrome {
     public static void main(String[] args) {
-        Node head = LinkedListOperations.insertPalindromeInLinkedList();
+        Node head = LinkedListOperations.insertInLinkedList();
+        checkPalindrome(head);
+
+        head = LinkedListOperations.insertPalindromeInLinkedList();
+        checkPalindrome(head);
+
+        head = LinkedListOperations.insertEvenPalindromeInLinkedList();
+        checkPalindrome(head);
+    }
+
+    private static void checkPalindrome(Node head){
         int len = getNodeCountInLinkedList(head);
 
-        int m = len/2;
+        int m = (int)ceil(len/2);
 
         Node h1 = head;
         Node h2 = null;
         Node tmp = head;
 
-        for(int i=0; i<=m; i++){
+        for(int i=1; i<=m; i++){
             if(i == m) {
                 h2 = tmp.next;
                 tmp.next = null;
@@ -22,7 +34,7 @@ public class VerifyPalindrome {
 
 //        Node tmp1 = h1;
 //        Node tmp2 = h2;
-
+//
 //        while(tmp1!=null){
 //            System.out.print(tmp1.data+" ");
 //            tmp1 = tmp1.next;
@@ -34,7 +46,7 @@ public class VerifyPalindrome {
 //            System.out.print(tmp2.data+" ");
 //            tmp2 = tmp2.next;
 //        }
-
+//
 //        System.out.println();
 
         h2 = reverseLinkedList(h2);
