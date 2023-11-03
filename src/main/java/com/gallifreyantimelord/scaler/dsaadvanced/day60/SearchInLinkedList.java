@@ -24,7 +24,7 @@ public class SearchInLinkedList {
 
     public static boolean findInLinkedList(Node head, int x){
         Node tmp = head;
-        while(tmp.next != null){
+        while(tmp != null){
             if(tmp.data == x)
                 return true;
             tmp = tmp.next;
